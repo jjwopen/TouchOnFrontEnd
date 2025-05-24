@@ -1,47 +1,52 @@
-# Svelte + Vite
+# TouchOn Kiosk Frontend with Svelte, VanillaJS, TailwindCSS  
 
-This template should help get you started developing with Svelte in Vite.
-
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
-
-## Need an official Svelte framework?
-
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
-
-## Technical considerations
-
-**Why use this over SvelteKit?**
-
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
-
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
-
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `checkJs` in the JS template?**
-
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+뭔가 프로젝트가 굉장히 복잡해 보이지만, 우리가 작업할 곳은 src 폴더 내 App.svelte와 routes, assets 폴더뿐임.  
+src/routes 안에 있는 svelte 파일들이 각각의 웹페이지임.  
+App.svelte에서는 모든 페이지에 공통적으로 적용되는 구조 작성 및 라우팅 관리.  
+새 페이지 추가가 필요하면 routes 폴더 안에 NewPage.svelte 파일 만들고, App.svelte에 `import NewPage from './routes/NewPage.svelte'`, 쓰고, const routes ~~ 안에 `'/newpage': NewPage` 적으면 됨.  
+다른 페이지로 이동할 땐 다음과 같이 작성.
+```sveltehtml
+<a href="#/">메인으로 이동</a>
 ```
+
+JS 작성은 `<script>` 안에서 하고, HTML에서 변수를 불러올 때는 중괄호 안에 변수명 쓰면 됨.  
+예시:
+```sveltehtml
+<script>
+    let a = "apple";
+</script>
+
+<main>
+    <h1> {a} </h1>
+</main>
+```
+
+이미지 파일은 src/assets에 저장하면 됨.  
+이미지를 웹페이지에 넣을 때, 먼저 script에서 `import (ImageName) from ../assets/(ImageFile)`로 불러오고, HTML에 `<img src={ImageName}" alt="(ImageName)">`으로 쓰면 됨.  
+예시:
+```sveltehtml
+<script>
+    import svelteImg from "../assets/svelte.svg";
+</script>
+
+<main>
+    <img src={svelteImg} alt="svelte">
+</main>
+```
+
+`<button>` 클릭했을 때 JS 함수가 실행되게 하려면 다음과 같이 작성.  
+```sveltehtml
+<script>
+    let func = () => {
+        window.location.href = "#/"; // 메인 화면으로 이동
+    }
+</script>
+<button on:click={func}>메인으로 이동</button>
+```
+
+대부분의 오류는 편집기가 알려줌. 수시로 오른쪽 위에 있는 Warning/Error 체크해가며 코딩하면 됨.  
+
+막혔을 때 ChatGPT 써도 되긴 하지만, 되도록이면 구글 검색 추천. 국내에서는 Velog가 개발 블로그로 가장 유명하고, 해외에서는 Stack Overflow가 가장 유명한 QnA 커뮤니티임.  
+구글 검색 시 맨 뒤에 `site:도메인명` 넣으면 해당 사이트에서만 검색해 줌.  
+개발자들은 영어를 선호하기 때문에 영문으로 검색하면 정확한 결과 얻을 수 있음.  
+네이버는 국내 검색 결과만 보여주기 때문에 추천하지 않음. 다만 구글에서 안나오는 게 네이버 블로그나 카페에서 나오는 경우가 간혹 있으니 보조 검색도구로 활용하는 건 좋음.  
