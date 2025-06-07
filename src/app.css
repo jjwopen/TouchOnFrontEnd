@@ -4,6 +4,10 @@
     .flex-between {
         @apply flex flex-row justify-between
     }
+    .flex-items-center {
+        @apply flex flex-row items-center
+    }
+    .flex-center {
+        @apply flex justify-center items-center
+    }
 }
-
-/* class="flex flex-row justify-between" --> class="flex-between"
