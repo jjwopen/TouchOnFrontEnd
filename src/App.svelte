@@ -3,6 +3,7 @@
   import Home from './routes/Home.svelte'
   import Menu from './routes/Menu.svelte'
   import Order from './routes/Order/Order.svelte'
+  import OrderC from './routes/Order/OrderComplete.svelte'
 
   const routes = {
     '/': Home,
@@ -10,7 +11,7 @@
     '/order': Order,
     '/order/orderA': Order,
     '/order/orderB': Order,
-    '/order/orderC': Order
+    '/orderC': OrderC
   }
 </script>
 
