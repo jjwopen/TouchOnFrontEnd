@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+
+@layer utilities {
+    .scrollbar-hide {
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        scrollbar-width: none;
+    }
+}
+
 @layer components {
     .flex-between {
         @apply flex flex-row justify-between
@@ -29,3 +39,4 @@
         color: #F6C543;
     }
 }
+
