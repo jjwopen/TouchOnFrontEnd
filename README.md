@@ -49,4 +49,18 @@ JS 작성은 `<script>` 안에서 하고, HTML에서 변수를 불러올 때는 
 막혔을 때 ChatGPT 써도 되긴 하지만, 되도록이면 구글 검색 추천. 국내에서는 Velog가 개발 블로그로 가장 유명하고, 해외에서는 Stack Overflow가 가장 유명한 QnA 커뮤니티임.  
 구글 검색 시 맨 뒤에 `site:도메인명` 넣으면 해당 사이트에서만 검색해 줌.  
 개발자들은 영어를 선호하기 때문에 영문으로 검색하면 정확한 결과 얻을 수 있음.  
-네이버는 국내 검색 결과만 보여주기 때문에 추천하지 않음. 다만 구글에서 안나오는 게 네이버 블로그나 카페에서 나오는 경우가 간혹 있으니 보조 검색도구로 활용하는 건 좋음.  
+네이버는 국내 검색 결과만 보여주기 때문에 추천하지 않음. 다만 구글에서 안나오는 게 네이버 블로그나 카페에서 나오는 경우가 간혹 있으니 보조 검색도구로 활용하는 건 좋음.
+
+여러 번 반복되는 TailwindCSS가 있을 경우, 다음과 같이 `src/app.css`를 수정해서 하나의 TailwindCSS로 만들 수 있음.
+```css
+/* src/app.css */
+@import "tailwindcss";
+
+@layer components {
+    .flex-between {
+        @apply flex flex-row justify-between
+    }
+}
+
+/* class="flex flex-row justify-between" --> class="flex-between" */
+```
