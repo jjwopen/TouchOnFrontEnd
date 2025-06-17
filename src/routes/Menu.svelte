@@ -10,7 +10,7 @@
     }
 
     let toOrder = () => {
-        window.location.href = "#/Order";
+        window.location.href = "#/order/ordera";
     }
 
     let categories = ["버거&세트","해피스낵","스낵&사이드","음료","디저트"];
@@ -206,7 +206,7 @@
                     {#each selectedMenu as item (item.name + JSON.stringify(item.option))}
                         <div class="flex justify-between items-center mb-1">
                             <div>
-                                {item.name} - {item.price}원 × {item.quantity}
+                                {item.name} - {item.price.toLocaleString()}원 × {item.quantity}
                                 <div class="text-xs">
                                 {#if item.option?.type === "세트"}
                                     (세트: {item.option.side}, {item.option.drink})
