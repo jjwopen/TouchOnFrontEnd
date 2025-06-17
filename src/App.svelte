@@ -2,10 +2,16 @@
   import Router from 'svelte-spa-router'
   import Home from './routes/Home.svelte'
   import Menu from './routes/Menu.svelte'
+  import Order from './routes/Order/Order.svelte'
+  import OrderC from './routes/Order/OrderComplete.svelte'
 
   const routes = {
     '/': Home,
-    '/menu': Menu
+    '/menu': Menu,
+    '/order': Order,
+    '/order/orderA': Order,
+    '/order/orderB': Order,
+    '/orderC': OrderC
   }
 </script>
 
