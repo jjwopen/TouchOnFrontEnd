@@ -53,12 +53,12 @@
     <!-- 네 번째 섹션 -->
     <button onclick={() => {
         window.location.href = "/#/menu"
-    }} class="content-center flex flex-row justify-between bg-green-900 items-center h-50 w-full p-2">
+    }} class="content-center flex flex-row justify-around bg-green-900 items-center h-50 w-full p-2">
         <div class="">
             <img src={img3} alt="맥도날드 로고" class="w-[100px] h-auto" />
         </div>
         <div>
-            <p class="block text-center font-bold text-5xl text-white w-full">
+            <p class="block text-center font-bold text-5xl text-white w-full mb-2">
                 주문하려면
             </p>
             <p class="block text-center font-bold text-5xl text-white w-full">

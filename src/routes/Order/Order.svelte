@@ -4,7 +4,7 @@
 
     import OrderForHereToGo from './OrderForHereToGo.svelte'
     import OrderPay from './OrderPay.svelte'
-    import {orderInfo, coupons} from "../../store.js";
+    import {orderInfo, coupons, INITIALORDERINFO} from "../../store.js";
 
 
     const routes = {
@@ -35,7 +35,10 @@
     // let modalType = "pay";
     let modalType = null;
     const closeModal = () => {
-        if (modalType === "pay") window.location.href = "/#/orderC";
+        if (modalType === "pay") {
+            $orderInfo = INITIALORDERINFO;
+            window.location.href = "/#/orderC";
+        }
         modalType = null;
     }
 
@@ -70,7 +73,7 @@
                 {#if info.count>0}
                     <div>
                         <div class="order_menu flex-between">
-                            <div class="menu_img aspect-square w-1/4 align-middle content-center border-2 rounded-2xl mr-2 bg-gray-400">
+                            <div class="menu_img w-1/4 h-fit align-middle content-center border-2 rounded-2xl mr-2 bg-gray-400 overflow-hidden">
                                 <img src="{info.id}.png" alt="{info.id}" class="w-auto">
                             </div>
                             <div class="menu_detail flex flex-col w-full pr-2">
@@ -107,7 +110,9 @@
                                     </div>
 <!--                                    <button class="menu-option-edit h-full p-2 border-2 rounded-xl bg-white">수정하기</button>-->
                                 </div>
-                                <hr class="my-1 border-gray-400">
+                                {#if info.detail.isSet}
+                                    <hr class="my-1 border-gray-400">
+                                {/if}
                                 <p class="text-right text-xl">
                                     {(info.price * info.count +
                                         (info.detail?.details?.reduce((sum, d) => sum + d.price * d.count, 0) || 0) * info.count).toLocaleString()}원
