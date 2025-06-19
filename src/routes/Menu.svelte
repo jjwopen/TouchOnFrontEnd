@@ -35,6 +35,7 @@
         }
 
         temp.forEach((t) => {
+            if (t.count === 0) return;
             let idSplit = t.id.split("/");
 
             let option;
@@ -207,7 +208,7 @@
      * @param option
      * @param {string} category
      */
-    function addMenu(menuName, option = null, category) {
+    function addMenu(menuName, option = {type: "단품", side: {id: "", name: ""}, drink: {id: "", name: ""}}, category) {
         const product = Object.values(products).flat().find(p => p.name === menuName);
         const price = (option?.type === "세트" && product.setprice) ? product.setprice : product.price;
         const index = selectedMenu.findIndex(item => item.name === menuName && JSON.stringify(item.option) === JSON.stringify(option));
@@ -348,7 +349,7 @@
 
         <div class="flex-1 p-3 grid grid-cols-2 gap-4 overflow-y-auto scrollbar-hide"> <!-- 오른쪽 제품 목록 -->
             {#each products[selectedCategory] as product}
-                <button class="h-auto bg-white rounded-xl break-keep shadow hover:shadow-md transition p-2" on:click={() => selectedCategory === "버거&세트" ? openPopup(product.name) : addMenu(product.name, null, selectedCategory)}>
+                <button class="h-auto bg-white rounded-xl break-keep shadow hover:shadow-md transition p-2" on:click={() => selectedCategory === "버거&세트" ? openPopup(product.name) : addMenu(product.name, {type: "단품", side: {id: "", name: ""}, drink: {id: "", name: ""}}, selectedCategory)}>
                     <img src={product.img} alt={product.name} class="w-full object-cover rounded-xl"/>
                     <div class="font-semibold text-sm">{product.name}<br>{product.price.toLocaleString()}원{selectedCategory === "버거&세트" ? "~" : ""}</div>
                 </button>
@@ -405,7 +406,7 @@
 </div>
 
 {#if showPopup}
-    <div class="fixed inset-0 flex items-center justify-center z-50">
+    <div class="fixed inset-0 flex items-center justify-center z-50 bg-black/20">
         <div class="bg-white rounded-xl shadow-xl p-6 w-96">
             <h2 class="text-xl font-bold mb-4">옵션 선택</h2>
             <div class="space-y-2">

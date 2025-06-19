@@ -122,3 +122,5 @@ export let coupons = writable([
         appliedTarget: ""
     },
 ])
+
+export let shortScreen = writable(false);

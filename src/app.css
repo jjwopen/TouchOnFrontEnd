@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme {
+    --color-mcd-yellow: #FFF10A;
+    --color-mcd-orange: #FEC208;
+    --color-mcd-burgundy: #CF240A;
+    --color-mcd-red: #FF2D08;
+}
 
 @layer utilities {
     .scrollbar-hide {
@@ -10,6 +16,8 @@
     }
 }
 
+
+
 @layer components {
     .flex-between {
         @apply flex flex-row justify-between
@@ -19,24 +27,6 @@
     }
     .flex-center {
         @apply flex justify-center items-center
-    }
-    .bg-mcd-yellow {
-        background-color: #F6C543;
-    }
-    .bg-mcd-red {
-        background-color: #8E1F11;
-    }
-    .border-mcd-yellow {
-        border-color: #F6C543;
-    }
-    .border-mcd-red {
-        border-color: #8E1F11;
-    }
-    .text-mcd-red {
-        color: #8E1F11;
-    }
-    .text-mcd-yellow {
-        color: #F6C543;
     }
 }
 
