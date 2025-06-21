@@ -1,6 +1,6 @@
 <script>
-    import img1 from "../assets/오.png";
-    import img2 from "../assets/mcasdf.png";
+    // import img1 from "../../public/오.png";
+    // import img2 from "../../public/mcasdf.png";
     import {shortScreen} from "../store.js";
     $shortScreen;
 </script>
@@ -15,7 +15,7 @@
     <!-- 두 번째 섹션 -->
     <div class="flex items-center bg-gray-900 p-4">
         <!-- 이미지 -->
-        <img src={img1} alt="오 이미지" class="w-2/3 h-auto " />
+        <img src="오.png" alt="오 이미지" class="w-2/3 h-auto " />
         <!-- 문구 -->
         <div>
             <p class="text-center font-bold text-3xl text-white">
@@ -46,7 +46,7 @@
             </p>
         </div>
         <!-- 이미지 -->
-        <img src={img2} alt="아 이미지" class="w-1/2 bg-gray-900" />
+        <img src="mcasdf.png" alt="아 이미지" class="w-1/2 bg-gray-900" />
     </div>
 
     <div>
