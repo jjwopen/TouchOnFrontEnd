@@ -1,7 +1,7 @@
 <script>
     import img1 from "../assets/오.png";
     import img2 from "../assets/mcasdf.png";
-    import img3 from "../assets/mcdonalds.png";
+
 </script>
 
 <div class="w-full h-full bg-gray-900">
@@ -48,22 +48,39 @@
         <img src={img2} alt="아 이미지" class="w-1/2 bg-gray-900" />
     </div>
 
+    <div>
+        <p class="block text-center font-bold text-3xl text-white w-full mb-2">
+            주문하려면 눌러주세요!
+        </p>
+    </div>
 
 
-    <!-- 네 번째 섹션 -->
-    <button onclick={() => {
-        window.location.href = "/#/menu"
-    }} class="content-center flex flex-row justify-around bg-green-900 items-center h-50 w-full p-2">
-        <div class="">
-            <img src={img3} alt="맥도날드 로고" class="w-[100px] h-auto" />
-        </div>
-        <div>
-            <p class="block text-center font-bold text-5xl text-white w-full mb-2">
-                주문하려면
-            </p>
-            <p class="block text-center font-bold text-5xl text-white w-full">
-                눌러주세요!
-            </p>
-        </div>
-    </button>
+    <div class="flex">
+        <button onclick={() => {
+            window.location.href = "/#/menu"
+        }} class="content-center flex flex-row justify-around bg-green-900 items-center h-39 w-1/2 p-2 border-r-2 border-r-amber-200">
+            <div>
+                <p class="block text-center font-bold text-5xl text-white w-full mb-2">
+                    큰
+                </p>
+                <p class="block text-center font-bold text-5xl text-white w-full">
+                    메뉴판
+                </p>
+            </div>
+        </button>
+
+
+        <button onclick={() => {
+            window.location.href = "/#/menu"
+        }} class="content-center flex flex-row justify-around bg-green-900 items-center h-39 w-1/2 p-2 border-l-2 border-l-amber-200">
+            <div>
+                <p class="block text-center font-bold text-5xl text-white w-full mb-2">
+                    작은
+                </p>
+                <p class="block text-center font-bold text-5xl text-white w-full">
+                    메뉴판
+                </p>
+            </div>
+        </button>
+    </div>
 </div>
