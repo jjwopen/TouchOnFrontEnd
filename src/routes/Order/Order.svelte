@@ -190,9 +190,9 @@
 </style>
 
 {#if modalType}
-    <div class="fixed inset-0 bg-black/50 flex {!$shortScreen ? 'items-center' : 'items-end'}  justify-center z-50">
+    <div class="fixed inset-0 bg-black/50 flex {!$shortScreen ? 'items-center' : 'items-end mb-3'}  justify-center z-50">
         <div class="aspect-[9/16] h-5/6 bg-white rounded-xl shadow-lg flex flex-col justify-end">
-            <div class="p-6 overflow-y-auto">
+            <div class="p-6 overflow-y-hidden">
                 {#if modalType === 'coupon'}
                     <h2 class="text-xl font-bold text-center mb-4">쿠폰 선택</h2>
                     <div class="flex flex-col justify-start gap-2">
@@ -283,8 +283,13 @@
     </div>
 {/if}
 
-<div id="background-bottom" class="bg-white h-1/4 flex flex-col">
+<div id="background-bottom" class="bg-white h-1/4 flex flex-col overflow-hidden">
     <div id="order-price" class="text-2xl text-right p-2.5">결제 금액: {($orderInfo.total - $orderInfo.coupon.discount).toLocaleString()}원</div>
     <hr>
     <Router {routes} />
+    <button onclick={() => {
+        $shortScreen = !$shortScreen;
+    }} class=" content-center  border-b-4 border-x-4 border-none bg-amber-600 shadow-xl flex justify-center items-center">
+        <p class="text-center text text-white font-semibold">{!$shortScreen ? '높이 낮추기' : '높이 높이기'}</p>
+    </button>
 </div>

@@ -123,7 +123,7 @@ export let coupons = writable([
     },
 ])
 
-export let shortScreen = writable(true);
+export let shortScreen = writable(false);
 
 
 // orderInfo를 INITIALORDERINFO로 초기화하는 함수
