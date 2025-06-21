@@ -13,11 +13,11 @@
         window.location.href = "#/order/ordera";
     }
 
-    let categories = ["버거&세트","해피스낵","스낵&사이드","음료","디저트"];
-    let selectedCategory = "버거&세트";
+    let categories = ["버거& 세트","해피스낵","스낵& 사이드","음료","디저트"];
+    let selectedCategory = "버거& 세트";
 
     let products = {
-        "버거&세트":[
+        "버거& 세트":[
             {name:"쿼터파운더® 치즈 크리미 파마산", price:7700, setprice:8800, img:"/src/assets/mac/Burger/QPCCP.png"},
             {name:"1955® 크리미 파마산", price:8400, setprice:9500, img:"/src/assets/mac/Burger/1955CP.png"},
             {name:"더블 1955® 버거", price:9500, setprice:11500, img:"/src/assets/mac/Burger/D1955.png"},
@@ -50,7 +50,7 @@
             {name:"맥너겟® 4조각", price:2000, img:"/src/assets/mac/HappySnack/McN4.png"},
             {name:"맥너겟® 4조각 아이스 드립커피 콤보", price:4800, img:"/src/assets/mac/HappySnack/McN4_IDC.png"}
         ],
-        "스낵&사이드":[
+        "스낵& 사이드":[
             {name:"상하이 치킨 스낵랩", price:5900, img:"/src/assets/mac/Snack&Sides/SCSW.png"},
             {name:"맥윙™ 2조각", price:5000, img:"/src/assets/mac/Snack&Sides/McW.png"},
             {name:"코울슬로", price:3600, img:"/src/assets/mac/Snack&Sides/C.png"},
@@ -151,9 +151,11 @@
         Step = 3
     }
 
+    let short = false
+
 </script>
 
-<div class="flex flex-col h-screen">
+<div class="flex flex-col h-screen transition-transform duration-500 origin-bottom {short ? '' : ''}">
     <div class="relative flex w-full h-10 bg-amber-600 items-center justify-center"> <!-- 상단바 -->
         <button on:click={toHome} class="z-10 flex absolute left-2 text-white font-semibold text-base"> <!-- 홈버튼 -->
             <House class="w-6 h-6"></House>
@@ -180,18 +182,18 @@
         <div class="w-25 bg-gray-100 border-r"> <!-- 왼쪽 카테고리 -->
             {#each categories as category}
                 <button on:click={() => selectedCategory = category}
-                        class="w-full p-4 text-left transition-colors font-medium
+                        class="w-full p-4 text-left transition-colors font-medium break-keep
                         {selectedCategory === category ? 'bg-amber-400' : 'hover:bg-amber-300'}">
                     {category}
                 </button>
             {/each}
         </div>
 
-        <div class="flex-1 p-3 grid grid-cols-2 gap-4 overflow-y-auto scrollbar-hide"> <!-- 오른쪽 제품 목록 -->
+        <div class="flex-1 p-3 grid grid-cols-2 gap-3 overflow-y-auto scrollbar-hide"> <!-- 오른쪽 제품 목록 -->
             {#each products[selectedCategory] as product}
-                <button class="h-auto bg-white rounded-xl break-keep shadow hover:shadow-md transition p-2" on:click={() => selectedCategory === "버거&세트" ? openPopup(product.name) : addMenu(product.name)}>
-                    <img src={product.img} alt={product.name} class="w-full object-cover rounded-xl"/>
-                    <div class="font-semibold text-sm">{product.name}<br>{product.price.toLocaleString()}원{selectedCategory === "버거&세트" ? "~" : ""}</div>
+                <button class="relative h-auto bg-white rounded-xl break-keep shadow hover:shadow-md transition p-2" on:click={() => selectedCategory === "버거& 세트" ? openPopup(product.name) : addMenu(product.name)}>
+                    <img src={product.img} alt={product.name} class=" w-full object-cover rounded-xl"/>
+                    <div class="font-semibold text-sm">{product.name}<br>{product.price.toLocaleString()}원{selectedCategory === "버거& 세트" ? "~" : ""}</div>
                 </button>
             {/each}
         </div>
@@ -233,11 +235,12 @@
             {/if}
         </div>
 
-        <div class="flex flex-col items-center m-auto">
-            <div class="bg-white text-xl rounded-sm"> <!-- 총 메뉴 가격 -->
+        <div class="flex flex-col h-auto w-auto justify-center items-center mx-auto">
+            <button class="bg-gray-500" on:click={() => short = !short}>{short ? "높이 올리기" : "높이 낮추기"}</button>
+            <div class="m-1 w-full bg-white text-xl text-right rounded-sm"> <!-- 총 메뉴 가격 -->
                 {totalPrice.toLocaleString()}원
             </div>
-            <button class="flex bg-black text-white" on:click={toOrder}> <!-- 결제 버튼 -->
+            <button class="flex h-8 w-full rounded-sm bg-amber-500 text-white items-center" on:click={toOrder}> <!-- 결제 버튼 -->
                 <CreditCard></CreditCard>
                 결제하기
             </button>
