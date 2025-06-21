@@ -1,10 +1,11 @@
 <script>
     import img1 from "../assets/오.png";
     import img2 from "../assets/mcasdf.png";
-
+    import {shortScreen} from "../store.js";
+    $shortScreen;
 </script>
 
-<div class="w-full h-full bg-gray-900">
+<div class="w-full h-full bg-gray-900 flex flex-col">
     <!-- 첫 번째 섹션 -->
     <div class="content-center flex flex-row justify-center items-center h-30 flex-wrap">
         <p class="block text-center font-bold text-4xl text-amber-200 bg-gray-900 m-2 w-full">두툼한 패티에</p>
@@ -55,10 +56,11 @@
     </div>
 
 
-    <div class="flex">
+    <div class="flex flex-grow">
         <button onclick={() => {
-            window.location.href = "/#/menu"
-        }} class="content-center flex flex-row justify-around bg-green-900 items-center h-39 w-1/2 p-2 border-r-2 border-r-amber-200">
+            window.location.href = "/#/menu";
+            $shortScreen = false;
+        }} class="content-center flex flex-row justify-around bg-green-900 items-center  w-1/2 p-2 border-r-2 border-r-amber-200">
             <div>
                 <p class="block text-center font-bold text-5xl text-white w-full mb-2">
                     큰
@@ -71,8 +73,9 @@
 
 
         <button onclick={() => {
-            window.location.href = "/#/menu"
-        }} class="content-center flex flex-row justify-around bg-green-900 items-center h-39 w-1/2 p-2 border-l-2 border-l-amber-200">
+            window.location.href = "/#/menu";
+            $shortScreen = true;
+        }} class="content-center flex flex-row justify-around bg-green-900 items-center  w-1/2 p-2 border-l-2 border-l-amber-200">
             <div>
                 <p class="block text-center font-bold text-5xl text-white w-full mb-2">
                     작은
