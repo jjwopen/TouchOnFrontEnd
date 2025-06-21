@@ -104,7 +104,7 @@
 
         <div id="order-menu-p" class="flex flex-col m-2 overflow-y-scroll flex-1 min-h-0" style="scrollbar-width: none">
             <!--        order-menu-->
-            {#each $orderInfo.menus as info (info.id)}
+            {#each $orderInfo.menus as info}
                 {#if info.count>0}
                     <div>
                         <div class="order_menu flex-between">
