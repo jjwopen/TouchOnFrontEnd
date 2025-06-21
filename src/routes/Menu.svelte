@@ -96,14 +96,14 @@
                     details: [
                         {
                             tag: "음료",
-                            id: `src/assets/mac/Beverages/${t.option.drink.id}`,
+                            id: `mac/Beverages/${t.option.drink.id}`,
                             name: t.option.drink.name,
                             price: 0,
                             count: 1
                         },
                         {
                             tag: "사이드 메뉴",
-                            id: `src/assets/mac/Beverages/${t.option.side.id}`,
+                            id: `mac/Beverages/${t.option.side.id}`,
                             name: t.option.side.name,
                             price: 0,
                             count: 1
@@ -118,7 +118,7 @@
                 }
 
             let temp = {
-                id: `src/assets/mac/${categoryToDirectory[t.category]}/${t.id}`,
+                id: `mac/${categoryToDirectory[t.category]}/${t.id}`,
                 name: t.name,
                 price: t.price,
                 count: t.quantity,
