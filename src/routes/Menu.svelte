@@ -3,7 +3,7 @@
 <script>
 
     import {House, CreditCard} from "lucide-svelte";
-    import "/src/assets/mac/Burger/D1955.png";
+    import "/public/mac/Burger/D1955.png";
     import {orderInfo, INITIALORDERINFO, shortScreen} from "../store.js";
 
 
@@ -136,73 +136,73 @@
 
     let products = {
         "버거&세트":[
-            {id: "QPCCP", name:"쿼터파운더® 치즈 크리미 파마산", price:7700, setprice:8800, img:"/src/assets/mac/Burger/QPCCP.png"},
-            {id: "1955CP", name:"1955® 크리미 파마산", price:8400, setprice:9500, img:"/src/assets/mac/Burger/1955CP.png"},
-            {id: "D1955", name:"더블 1955® 버거", price:9500, setprice:11500, img:"/src/assets/mac/Burger/D1955.png"},
-            {id: "DMcSS", name:"더블 맥스파이시® 상하이 버거", price:8900, setprice:10900, img:"/src/assets/mac/Burger/DMcSS.png"},
-            {id: "DQPC", name:"더블 쿼터파운더® 치즈", price:7400, setprice:9300, img:"/src/assets/mac/Burger/DQPC.png"},
-            {id: "McSS", name:"맥스파이시® 상하이 버거", price:5500, setprice:6300, img:"/src/assets/mac/Burger/McSS.png"},
-            {id: "QPC", name:"쿼터파운더® 치즈", price:5500, setprice:7600, img:"/src/assets/mac/Burger/QPC.png"},
-            {id: "TCB", name:"토마토 치즈 비프 버거", price:3800, setprice:5600, img:"/src/assets/mac/Burger/TCB.png"},
-            {id: "BMc", name:"빅맥®", price:5500, setprice:6300, img:"/src/assets/mac/Burger/BMc.png"},
-            {id: "McCD", name:"맥크리스피™ 디럭스 버거", price:6800, setprice:7500, img:"/src/assets/mac/Burger/McCD.png"},
-            {id: "McCC", name:"맥크리스피™ 클래식 버거", price:5900, setprice:7400, img:"/src/assets/mac/Burger/McCC.png"},
-            {id: "1955", name:"1955® 버거", price:6400, setprice:7000, img:"/src/assets/mac/Burger/1955.png"},
-            {id: "McCM", name:"맥치킨® 모짜렐라", price:5000, setprice:7300, img:"/src/assets/mac/Burger/McCM.png"},
-            {id: "McC", name:"맥치킨®", price:3500, setprice:5400, img:"/src/assets/mac/Burger/McC.png"},
-            {id: "DB", name:"더블 불고기 버거", price:4500, setprice:5900, img:"/src/assets/mac/Burger/DB.png"},
-            {id: "B", name:"불고기 버거", price:3600, setprice:5500, img:"/src/assets/mac/Burger/B.png"},
-            {id: "SS", name:"슈슈 버거", price:4700, setprice:6000, img:"/src/assets/mac/Burger/SS.png"},
-            {id: "SB", name:"슈비 버거", price:5800, setprice:8100, img:"/src/assets/mac/Burger/SB.png"},
-            {id: "BTD", name:"베이컨 토마토 디럭스", price:5800, setprice:7300, img:"/src/assets/mac/Burger/BTD.png"},
-            {id: "C", name:"해피 스낵 치즈버거", price:2000, setprice:5000, img:"/src/assets/mac/Burger/C.png"},
-            {id: "DC", name:"더블 치즈버거", price:4800, setprice:6000, img:"/src/assets/mac/Burger/DC.png"},
-            {id: "TC", name:"트리플 치즈버거", price:5900, setprice:7200, img:"/src/assets/mac/Burger/TC.png"},
-            {id: "H", name:"햄버거", price:2600, img:"/src/assets/mac/Burger/H.png"}
+            {id: "QPCCP", name:"쿼터파운더® 치즈 크리미 파마산", price:7700, setprice:8800, img:"mac/Burger/QPCCP.png"},
+            {id: "1955CP", name:"1955® 크리미 파마산", price:8400, setprice:9500, img:"mac/Burger/1955CP.png"},
+            {id: "D1955", name:"더블 1955® 버거", price:9500, setprice:11500, img:"mac/Burger/D1955.png"},
+            {id: "DMcSS", name:"더블 맥스파이시® 상하이 버거", price:8900, setprice:10900, img:"mac/Burger/DMcSS.png"},
+            {id: "DQPC", name:"더블 쿼터파운더® 치즈", price:7400, setprice:9300, img:"mac/Burger/DQPC.png"},
+            {id: "McSS", name:"맥스파이시® 상하이 버거", price:5500, setprice:6300, img:"mac/Burger/McSS.png"},
+            {id: "QPC", name:"쿼터파운더® 치즈", price:5500, setprice:7600, img:"mac/Burger/QPC.png"},
+            {id: "TCB", name:"토마토 치즈 비프 버거", price:3800, setprice:5600, img:"mac/Burger/TCB.png"},
+            {id: "BMc", name:"빅맥®", price:5500, setprice:6300, img:"mac/Burger/BMc.png"},
+            {id: "McCD", name:"맥크리스피™ 디럭스 버거", price:6800, setprice:7500, img:"mac/Burger/McCD.png"},
+            {id: "McCC", name:"맥크리스피™ 클래식 버거", price:5900, setprice:7400, img:"mac/Burger/McCC.png"},
+            {id: "1955", name:"1955® 버거", price:6400, setprice:7000, img:"mac/Burger/1955.png"},
+            {id: "McCM", name:"맥치킨® 모짜렐라", price:5000, setprice:7300, img:"mac/Burger/McCM.png"},
+            {id: "McC", name:"맥치킨®", price:3500, setprice:5400, img:"mac/Burger/McC.png"},
+            {id: "DB", name:"더블 불고기 버거", price:4500, setprice:5900, img:"mac/Burger/DB.png"},
+            {id: "B", name:"불고기 버거", price:3600, setprice:5500, img:"mac/Burger/B.png"},
+            {id: "SS", name:"슈슈 버거", price:4700, setprice:6000, img:"mac/Burger/SS.png"},
+            {id: "SB", name:"슈비 버거", price:5800, setprice:8100, img:"mac/Burger/SB.png"},
+            {id: "BTD", name:"베이컨 토마토 디럭스", price:5800, setprice:7300, img:"mac/Burger/BTD.png"},
+            {id: "C", name:"해피 스낵 치즈버거", price:2000, setprice:5000, img:"mac/Burger/C.png"},
+            {id: "DC", name:"더블 치즈버거", price:4800, setprice:6000, img:"mac/Burger/DC.png"},
+            {id: "TC", name:"트리플 치즈버거", price:5900, setprice:7200, img:"mac/Burger/TC.png"},
+            {id: "H", name:"햄버거", price:2600, img:"mac/Burger/H.png"}
 
         ],
         "해피스낵":[
-            {id: "1955SW", name:"1955 스낵랩", price:5900, img:"/src/assets/mac/HappySnack/1955SW.png"},
-            {id: "HSC", name:"치즈버거", price:5000, img:"/src/assets/mac/HappySnack/HSC.png"},
-            {id: "IDCM", name:"아이스 드립 커피", price:3600, img:"/src/assets/mac/HappySnack/IDCM.png"},
-            {id: "ICLM", name:"아이스 카페 라떼", price:4700, img:"/src/assets/mac/HappySnack/ICLM.png"},
-            {id: "McN4", name:"맥너겟® 4조각", price:2000, img:"/src/assets/mac/HappySnack/McN4.png"},
-            {id: "McN4_IDC", name:"맥너겟® 4조각 아이스 드립커피 콤보", price:4800, img:"/src/assets/mac/HappySnack/McN4_IDC.png"}
+            {id: "1955SW", name:"1955 스낵랩", price:5900, img:"mac/HappySnack/1955SW.png"},
+            {id: "HSC", name:"치즈버거", price:5000, img:"mac/HappySnack/HSC.png"},
+            {id: "IDCM", name:"아이스 드립 커피", price:3600, img:"mac/HappySnack/IDCM.png"},
+            {id: "ICLM", name:"아이스 카페 라떼", price:4700, img:"mac/HappySnack/ICLM.png"},
+            {id: "McN4", name:"맥너겟® 4조각", price:2000, img:"mac/HappySnack/McN4.png"},
+            {id: "McN4_IDC", name:"맥너겟® 4조각 아이스 드립커피 콤보", price:4800, img:"mac/HappySnack/McN4_IDC.png"}
         ],
 
         "스낵&사이드":[
-            {id: "SCSW", name:"상하이 치킨 스낵랩", price:5900, img:"/src/assets/mac/Snack&Sides/SCSW.png"},
-            {id: "McW", name:"맥윙™ 2조각", price:5000, img:"/src/assets/mac/Snack&Sides/McW.png"},
-            {id: "Co", name:"코울슬로", price:3600, img:"/src/assets/mac/Snack&Sides/Co.png"},
-            {id: "FF", name:"후렌치 후라이", price:4700, img:"/src/assets/mac/Snack&Sides/FF.png"},
-            {id: "HB", name:"해쉬 브라운", price:5800, img:"/src/assets/mac/Snack&Sides/HB.png"},
-            {id: "McSCT", name:"맥스파이시®치킨 텐더 2조각", price:2000, img:"/src/assets/mac/Snack&Sides/McSCT.png"},
-            {id: "GMCS", name:"골든 모짜렐라 치즈스틱 2조각", price:4800, img:"/src/assets/mac/Snack&Sides/GMCS.png"}
+            {id: "SCSW", name:"상하이 치킨 스낵랩", price:5900, img:"mac/Snack&Sides/SCSW.png"},
+            {id: "McW", name:"맥윙™ 2조각", price:5000, img:"mac/Snack&Sides/McW.png"},
+            {id: "Co", name:"코울슬로", price:3600, img:"mac/Snack&Sides/Co.png"},
+            {id: "FF", name:"후렌치 후라이", price:4700, img:"mac/Snack&Sides/FF.png"},
+            {id: "HB", name:"해쉬 브라운", price:5800, img:"mac/Snack&Sides/HB.png"},
+            {id: "McSCT", name:"맥스파이시®치킨 텐더 2조각", price:2000, img:"mac/Snack&Sides/McSCT.png"},
+            {id: "GMCS", name:"골든 모짜렐라 치즈스틱 2조각", price:4800, img:"mac/Snack&Sides/GMCS.png"}
 
         ],
         "음료":[
-            {id: "CC", name:"코카 콜라", price:3600, img:"/src/assets/mac/Beverages/CC.png"},
-            {id: "S", name:"스프라이트", price:4700, img:"/src/assets/mac/Beverages/S.png"},
-            {id: "F", name:"환타", price:5800, img:"/src/assets/mac/Beverages/F.png"},
-            {id: "MPIT", name:"망고 피치 아이스티", price:5900, img:"/src/assets/mac/Beverages/MPIT.png"},
-            {id: "PIT", name:"피치 아이스티", price:5000, img:"/src/assets/mac/Beverages/PIT.png"},
-            {id: "DCof", name:"드립커피", price:3600, img:"/src/assets/mac/Beverages/DCof.png"},
-            {id: "A", name:"아메리카노", price:2000, img:"/src/assets/mac/Beverages/A.png"},
-            {id: "VL", name:"바닐라 라떼", price:4800, img:"/src/assets/mac/Beverages/VL.png"},
-            {id: "CL", name:"카페라떼", price:5900, img:"/src/assets/mac/Beverages/CL.png"},
-            {id: "Ca", name:"카푸치노", price:5000, img:"/src/assets/mac/Beverages/Ca.png"},
-            {id: "MW", name:"생수", price:3600, img:"/src/assets/mac/Beverages/MW.png"}
+            {id: "CC", name:"코카 콜라", price:3600, img:"mac/Beverages/CC.png"},
+            {id: "S", name:"스프라이트", price:4700, img:"mac/Beverages/S.png"},
+            {id: "F", name:"환타", price:5800, img:"mac/Beverages/F.png"},
+            {id: "MPIT", name:"망고 피치 아이스티", price:5900, img:"mac/Beverages/MPIT.png"},
+            {id: "PIT", name:"피치 아이스티", price:5000, img:"mac/Beverages/PIT.png"},
+            {id: "DCof", name:"드립커피", price:3600, img:"mac/Beverages/DCof.png"},
+            {id: "A", name:"아메리카노", price:2000, img:"mac/Beverages/A.png"},
+            {id: "VL", name:"바닐라 라떼", price:4800, img:"mac/Beverages/VL.png"},
+            {id: "CL", name:"카페라떼", price:5900, img:"mac/Beverages/CL.png"},
+            {id: "Ca", name:"카푸치노", price:5000, img:"mac/Beverages/Ca.png"},
+            {id: "MW", name:"생수", price:3600, img:"mac/Beverages/MW.png"}
         ],
         "디저트":[
-            {id: "VSMcF", name:"베리 스트로베리 맥플러리", price:5900, img:"/src/assets/mac/Desserts/VSMcF.png"},
-            {id: "OMcF", name:"오레오 맥플러리", price:5000, img:"/src/assets/mac/Desserts/OMcF.png"},
-            {id: "SOMcF", name:"딸기 오레오 맥플러리", price:3600, img:"/src/assets/mac/Desserts/SOMcF.png"},
-            {id: "COMcF", name:"초코 오레오 맥플러리", price:4700, img:"/src/assets/mac/Desserts/COMcF.png"},
-            {id: "SC", name:"스트로베리콘", price:5800, img:"/src/assets/mac/Desserts/SC.png"},
-            {id: "ICC", name:"아이스크림콘", price:3600, img:"/src/assets/mac/Desserts/ICC.png"},
-            {id: "VS", name:"바닐라 선데이 아이스크림", price:3600, img:"/src/assets/mac/Desserts/VS.png"},
-            {id: "CS", name:"초코 선데이 아이스크림", price:2000, img:"/src/assets/mac/Desserts/CS.png"},
-            {id: "SSI", name:"딸기 선데이 아이스크림", price:4800, img:"/src/assets/mac/Desserts/SSI.png"}
+            {id: "VSMcF", name:"베리 스트로베리 맥플러리", price:5900, img:"mac/Desserts/VSMcF.png"},
+            {id: "OMcF", name:"오레오 맥플러리", price:5000, img:"mac/Desserts/OMcF.png"},
+            {id: "SOMcF", name:"딸기 오레오 맥플러리", price:3600, img:"mac/Desserts/SOMcF.png"},
+            {id: "COMcF", name:"초코 오레오 맥플러리", price:4700, img:"mac/Desserts/COMcF.png"},
+            {id: "SC", name:"스트로베리콘", price:5800, img:"mac/Desserts/SC.png"},
+            {id: "ICC", name:"아이스크림콘", price:3600, img:"mac/Desserts/ICC.png"},
+            {id: "VS", name:"바닐라 선데이 아이스크림", price:3600, img:"mac/Desserts/VS.png"},
+            {id: "CS", name:"초코 선데이 아이스크림", price:2000, img:"mac/Desserts/CS.png"},
+            {id: "SSI", name:"딸기 선데이 아이스크림", price:4800, img:"mac/Desserts/SSI.png"}
         ]
     }
 
