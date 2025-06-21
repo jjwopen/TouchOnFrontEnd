@@ -123,4 +123,20 @@ export let coupons = writable([
     },
 ])
 
-export let shortScreen = writable(false);
+export let shortScreen = writable(true);
+
+
+// orderInfo를 INITIALORDERINFO로 초기화하는 함수
+export function resetOrderInfoToInitial() {
+    orderInfo.set(INITIALORDERINFO);
+}
+
+// 모든 쿠폰의 applied 값을 false로 설정하는 함수
+export function resetAllCouponApplications() {
+    coupons.update(currentCoupons => {
+        return currentCoupons.map(coupon => ({
+            ...coupon,
+            applied: false
+        }));
+    });
+}

@@ -4,8 +4,8 @@
 
     import OrderForHereToGo from './OrderForHereToGo.svelte'
     import OrderPay from './OrderPay.svelte'
-    import {orderInfo, coupons, INITIALORDERINFO, shortScreen} from "../../store.js";
-
+    import {orderInfo, coupons, shortScreen, resetAllCouponApplications, resetOrderInfoToInitial} from "../../store.js";
+    import { get } from "svelte/store";
 
     const routes = {
         '/order/orderA': OrderForHereToGo,
@@ -36,8 +36,15 @@
     let modalType = null;
     const closeModal = () => {
         if (modalType === "pay") {
-            $orderInfo = INITIALORDERINFO;
-            window.location.href = "/#/orderC";
+            resetOrderInfoToInitial();
+            resetAllCouponApplications();
+
+            setTimeout(() => {
+                console.log(get(orderInfo));
+                console.log(get(coupons));
+                window.location.href = "/#/orderC";
+            }, 500);
+
         }
         modalType = null;
     }
@@ -49,6 +56,32 @@
     setContext('openModal', openModal);
 
     $shortScreen;
+
+    function goBack() {
+        if (window.location.hash.toLowerCase() === "#/order/ordera") {
+            coupons.update(current => {
+                return current.map(coupon => ({
+                    ...coupon,
+                    applied: false
+                }))
+            })
+
+            orderInfo.update(current => {
+                return {
+                    ...current,
+                    coupon: {
+                        applied: false,
+                        discount: 0
+                    }
+                }
+            })
+        }
+
+        console.log($orderInfo);
+        history.back();
+    }
+
+
 </script>
 
 <!-- Full-Screen -->
@@ -57,7 +90,7 @@
 {/if}
 <div id="background-top" class="flex flex-col {!$shortScreen ? 'h-3/4' : 'h-3/8'} bg-white">
     <div id="header-pay" class="h-10 content-center pb-2  border-b-4 border-x-4 border-none bg-amber-600 shadow-xl">
-        <button onclick={() => { history.back(); console.log($orderInfo) }} id="button-back" class="absolute mt-2 ml-2 font-semibold text-white">뒤로가기</button>
+        <button onclick={goBack} id="button-back" class="absolute mt-2 ml-2 font-semibold text-white">뒤로가기</button>
         <p class="text-center text-2xl text-white font-semibold mt-1">결제하기</p>
     </div>
 
