@@ -2,6 +2,7 @@
     import {shortScreen} from "../../store.js";
     setTimeout(() => {
         window.location.href = "/#/"
+        window.location.reload();
     }, 5000)
 </script>
 
