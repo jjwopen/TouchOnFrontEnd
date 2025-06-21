@@ -4,7 +4,7 @@
 
     import OrderForHereToGo from './OrderForHereToGo.svelte'
     import OrderPay from './OrderPay.svelte'
-    import {orderInfo, coupons} from "../../store.js";
+    import {orderInfo, coupons, INITIALORDERINFO, shortScreen} from "../../store.js";
 
 
     const routes = {
@@ -35,7 +35,10 @@
     // let modalType = "pay";
     let modalType = null;
     const closeModal = () => {
-        if (modalType === "pay") window.location.href = "/#/orderC";
+        if (modalType === "pay") {
+            $orderInfo = INITIALORDERINFO;
+            window.location.href = "/#/orderC";
+        }
         modalType = null;
     }
 
@@ -44,25 +47,27 @@
     }
 
     setContext('openModal', openModal);
+
+    $shortScreen;
 </script>
 
 <!-- Full-Screen -->
-
-
-
-<div id="background-top" class="flex flex-col h-3/4 bg-white gap-2">
-    <div id="header-pay" class="h-1/4 bg-white content-center pb-2 rounded-b-3xl border-b-4 border-x-4 border-mcd-yellow shadow-xl">
-        <p class="text-center text-4xl">결제하기</p>
+{#if $shortScreen}
+    <div class="h-3/8 bg-transparent"></div>
+{/if}
+<div id="background-top" class="flex flex-col {!$shortScreen ? 'h-3/4' : 'h-3/8'} bg-white">
+    <div id="header-pay" class="h-10 content-center pb-2  border-b-4 border-x-4 border-none bg-amber-600 shadow-xl">
+        <button onclick={() => { history.back(); console.log($orderInfo) }} id="button-back" class="absolute mt-2 ml-2 font-semibold text-white">뒤로가기</button>
+        <p class="text-center text-2xl text-white font-semibold mt-1">결제하기</p>
     </div>
 
-    <div class="bg-gray-300 pt-2 rounded-3xl h-3/4 flex flex-col shadow-md">
-        <header>
-            <button onclick={() => { history.back() }} id="button-back" class="ml-3 mt-1">뒤로가기</button>
-        </header>
-        <header>
-            <p class="text-center text-3xl -translate-y-2">주문정보</p>
-        </header>
-        <hr class="m-2 border-1 rounded-full">
+    <div class="bg-gray-100 pt-2 flex-1 flex flex-col flex-grow shadow-md {!$shortScreen ? 'max-h-[462.5px]' : 'max-h-[211.25px]'}">
+        {#if !$shortScreen}
+            <header>
+                <p class="text-center text-3xl my-3">주문정보</p>
+            </header>
+            <hr class="m-2 border-1 rounded-full">
+        {/if}
 
         <div id="order-menu-p" class="flex flex-col m-2 overflow-y-scroll flex-1 min-h-0" style="scrollbar-width: none">
             <!--        order-menu-->
@@ -70,12 +75,12 @@
                 {#if info.count>0}
                     <div>
                         <div class="order_menu flex-between">
-                            <div class="menu_img aspect-square w-1/4 align-middle content-center border-2 rounded-2xl mr-2 bg-gray-400">
+                            <div class="menu_img w-1/4 h-fit align-middle content-center border-2 rounded-2xl mr-2 bg-gray-400 overflow-hidden">
                                 <img src="{info.id}.png" alt="{info.id}" class="w-auto">
                             </div>
                             <div class="menu_detail flex flex-col w-full pr-2">
-                                <div class="menu_detail_top flex-between items-center h-6">
-                                    <p class="menu_name font-medium">{info.name}</p>
+                                <div class="menu_detail_top flex-between items-center h-fit">
+                                    <p class="menu_name font-medium break-keep max-w-[180px]">{info.name}</p>
                                     <div class="flex-items-center">
                                         <div class="flex-between mr-2 items-center">
                                             <button onclick={() => {
@@ -107,7 +112,9 @@
                                     </div>
 <!--                                    <button class="menu-option-edit h-full p-2 border-2 rounded-xl bg-white">수정하기</button>-->
                                 </div>
-                                <hr class="my-1 border-gray-400">
+                                {#if info.detail.isSet}
+                                    <hr class="my-1 border-gray-400">
+                                {/if}
                                 <p class="text-right text-xl">
                                     {(info.price * info.count +
                                         (info.detail?.details?.reduce((sum, d) => sum + d.price * d.count, 0) || 0) * info.count).toLocaleString()}원
@@ -150,8 +157,8 @@
 </style>
 
 {#if modalType}
-    <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-        <div class="aspect-[9/16] h-5/6 bg-white rounded-xl shadow-lg flex flex-col">
+    <div class="fixed inset-0 bg-black/50 flex {!$shortScreen ? 'items-center' : 'items-end'}  justify-center z-50">
+        <div class="aspect-[9/16] h-5/6 bg-white rounded-xl shadow-lg flex flex-col justify-end">
             <div class="p-6 overflow-y-auto">
                 {#if modalType === 'coupon'}
                     <h2 class="text-xl font-bold text-center mb-4">쿠폰 선택</h2>
@@ -193,11 +200,11 @@
 
                                     return updatedCoupons; // 'coupons' 스토어에 새로운 배열을 반환
                                 });
-                            }} class="border-2 border-slate-300 rounded-2xl text-start flex flex-row justify-between items-center h-20 text-2xl p-2" class:bg-mcd-yellow={currentCoupon.applied}>
+                            }} class="border-2 border-slate-300 rounded-2xl text-start flex flex-row justify-between items-center h-20 text-2xl p-2" class:bg-mcd-orange={currentCoupon.applied}>
                                 <div class="flex flex-col">
                                     <p>{currentCoupon.name}</p>
                                     {#if currentCoupon.applied}
-                                        <p class="text-mcd-red">적용됨</p>
+                                        <p class="text-mcd-burgundy">적용됨</p>
                                     {/if}
                                 </div>
                                 {#if currentCoupon.type === "price"}
@@ -213,7 +220,7 @@
 
                 {:else if modalType === 'pay'}
                     <h2 class="text-xl font-bold text-center mb-4">결제</h2>
-                    <div class="flex flex-col items-center pt-20">
+                    <div class="flex flex-col items-center pt-5">
                         <div class="flex flex-row justify-center items-center mb-4">
                             <p class="text-2xl mr-1">결제 금액:</p>
                             <p class="text-3xl font-bold">{($orderInfo.total - $orderInfo.coupon.discount).toLocaleString()}</p>
@@ -221,13 +228,13 @@
                         </div>
 
                         <p class="text-2xl ">카드를 넣어주세요</p>
-                        <div class="flex flex-col w-60 h-70 mt-15">
-                            <img src="CardInsert1.png" alt="card1" class="z-30">
-                            <img src="CardInsert2.png" alt="card2" class="-translate-y-12 z-10">
-                            <img id="card" src="CardInsert3.png" alt="card3" class="z-20">
-
-
-                        </div>
+                        <!--{#if !$shortScreen}-->
+                            <div class="flex flex-col w-60 h-70 pt-5">
+                                <img src="CardInsert1.png" alt="card1" class="z-30">
+                                <img src="CardInsert2.png" alt="card2" class="-translate-y-12 z-10">
+                                <img id="card" src="CardInsert3.png" alt="card3" class="z-20">
+                            </div>
+                        <!--{/if}-->
                     </div>
 
                 {:else}
@@ -235,7 +242,7 @@
                 {/if}
             </div>
 
-            <div class="text-right p-4 border-t mt-auto">
+            <div class="text-right p-4 border-t {!$shortScreen ? 'mt-auto' : ''}">
                 <button onclick={closeModal} class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">완료</button>
             </div>
         </div>
