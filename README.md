@@ -1,3 +1,8 @@
+TouchOn Kiosk : 디지털 약자를 위한 키오스크  
+맥도날드 키오스크의 문제점을 해결하고자 한 팀 프로젝트  
+[이곳](https://jjwopen.github.io)에서 체혐 가능  
+
+
 # TouchOn Kiosk Frontend with Svelte, VanillaJS, TailwindCSS  
 
 뭔가 프로젝트가 굉장히 복잡해 보이지만, 우리가 작업할 곳은 src 폴더 내 App.svelte와 routes, assets 폴더뿐임.  
